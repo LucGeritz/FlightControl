@@ -1,9 +1,9 @@
-#FlightControl
+# FlightControl
 FlightControl adds real controllers and view templates to [Flight](flightphp.com). Flight itself aims at RESTful application but with FlightControl you can build webpage applications where logic and presentation are separated. 
 
 It also adds a system of reusable modules.
 
-##Installation
+## Installation
 Make sure you have installed Flight on your webserver, see <http://flightphp.com/install>. 
 Next download or clone FlightControl and place it in a folder of its own on your webserver as well. 
 
