@@ -1,0 +1,124 @@
+body{
+	font-size: 20px;
+	font-family: Helvetica, sans-serif;
+}
+header{
+	background-image: url('bg-sky.png');
+}
+h2{
+	margin-bottom: 3px;
+	color: #209984;
+	font-style: italic;
+}
+h2 + p{
+	margin-top: 0px;
+}
+q{
+	font-style: italic;
+	color: gray;
+}
+.notes{
+	border: solid #b90000;
+	border-width: 0 0 0 2px;
+	color: gray;
+	padding: 4px 2px 2px 6px;
+}
+code,tt{
+	font-family: courier, monospace;
+	color: #b90000;
+}
+code.microlight, .text-block{
+	background-image: url('lined_paper.png');
+	overflow-x: scroll;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	display: block;
+	border: 0 solid;
+	border-color:  #118088;
+	border-width: 0 0 0 2px; 
+	padding: 10px 10px 10px 25px;
+	white-space: pre;
+	background-color: ivory;
+	font-family: courier,monospace;
+}
+.notes code{
+	border-width: 0;
+}
+
+.error-msg{
+	color: red;
+}
+label{
+	display: block;
+}
+form{
+	padding: 20px;
+}
+ul{
+	list-style: none;
+}
+a {
+  	color: #000;
+  	text-decoration: underline;
+  	text-decoration-color: #209984;
+}
+ul a, ol a{
+	text-decoration: none;
+}
+.image, .main-image{
+	text-align: center;
+}
+.main-image img{
+	margin-top: 12px;
+	max-width: 94%;
+ 	height: auto;
+ 	box-shadow: 8px 8px 6px #aaaaaa;
+}
+.content{
+	margin: 3%;
+} 
+
+/* navigation, based on css-snippets.com/simple-horizontal-navigation */
+.nav ul {
+  background-color: #c4e9f2;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.nav li {
+  font-size: 1.2rem;
+  line-height: 40px;
+  height: 40px;
+  border-bottom: 1px solid #888;
+}
+ 
+.nav a {
+   color: #000;
+  display: block;
+}
+ 
+.nav a:hover {
+  background-color: #00c8c8;
+  color: white
+}
+ 
+.nav a.active {
+  background-color: #fff;
+  color: black;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 600px) {
+  .nav li {
+    width: 120px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+  }
+ 
+ 
+.nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }
+} 
