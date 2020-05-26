@@ -1,20 +1,21 @@
 <?php
+namespace Templum;
 /*
- * 
+ *
  * The MIT License
- * 
+ *
  * Copyright (c) 2009, ZX, Ferry Boender
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,7 +23,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
+ *
 */
 
 /**
@@ -31,15 +32,16 @@
 * - changed php4-type constructors to __construct() for php7 compatibility
 */
 
-define("TEMPLUM_VERSION", "0.4.0");
-
 /**
  * @brief Templum Templating Engine.
- * 
+ *
  * This is the main Templum class. It takes care of retrieval, caching and
  * compiling of (translated) templates.
  */
 class Templum {
+
+	private const TEMPLUM_VERSION = "0.4.0";
+
 	/**
 	 * @brief Create a new Templum instance.
 	 * @param $templatePath (string) The full or relative path to the template directory.
@@ -117,7 +119,7 @@ class Templum {
 			}
 		// Check the non-translated version of this template
 		} else {
-			// Check the cache for the non-translated template. 
+			// Check the cache for the non-translated template.
 			$rpath = realpath($fpath);
 			if($rpath === False) {
 				throw new TemplumError("Template not found or not a file: $fpath", 3);
@@ -128,7 +130,7 @@ class Templum {
 			$fpath = $rpath;
 		}
 
-		// Check if the template exists. 
+		// Check if the template exists.
 		if (!is_file($fpath)) {
 			throw new TemplumError("Template not found or not a file: $fpath", 3);
 		}
@@ -140,16 +142,16 @@ class Templum {
 		$template = new TemplumTemplate(
 				$this,
 				$fpath,
-				$this->compile(file_get_contents($fpath), $autoEscape), 
+				$this->compile(file_get_contents($fpath), $autoEscape),
 				array_merge($this->varsUniversal, $varsGlobal)
 			);
 		$this->cache[$fpath] = $template;
 		return($template);
 	}
-	
+
 	/**
 	 * @brief Create a TemplumTemplate from a string.
-	 * 
+	 *
 	 * Create a TemplumTemplate instance using $contents as the template contents.
 	 * This severely limited what you can do with the TemplumTemplate. There will be
 	 * no including from the template, no translations, no caching, etc.
@@ -167,7 +169,7 @@ class Templum {
 		$template = new TemplumTemplate(
 				NULL,
 				"FROM_STRING",
-				$this->compile($contents, $autoEscape), 
+				$this->compile($contents, $autoEscape),
 				array()
 			);
 		return($template);
@@ -183,16 +185,16 @@ class Templum {
 		// Parse custom short-hand tags to PHP code.
 		$contents = preg_replace(
 			array(
-				"/{{/", 
-				"/}}\n/", 
-				"/}}/", 
-				"/\[\[/", 
+				"/{{/",
+				"/}}\n/",
+				"/}}/",
+				"/\[\[/",
 				"/\]\]/",
 				'/^\s*@(.*)$/m',
 				'/\[:\s*block\s(.*)\s*:\](.*)\[:\s*endblock\s*:\]/Usm',
 				),
 			array(
-				$autoEscape ? "<?php echo(htmlspecialchars(" : "<?php echo(", 
+				$autoEscape ? "<?php echo(htmlspecialchars(" : "<?php echo(",
 				$autoEscape ? ")); ?>\n\n" : "); ?>\n\n",
 				$autoEscape ? ")); ?>" : "); ?>",
 				"<?php ",

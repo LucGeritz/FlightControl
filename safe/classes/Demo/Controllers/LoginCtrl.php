@@ -1,19 +1,21 @@
 <?php
+namespace Demo\Controllers;
+
 /**
 */
-class LoginCtrl extends BaseCtrl{
-	
+class LoginCtrl extends \FlightControl\BaseCtrl{
+
 	private $url; // the requested url before we 'redirected' to the login
-		
+
 	public function getView(){
-		return 'loginView';		
+		return 'loginView';
 	}
-	
+
 	public function start(){
-	
-	
+
+
 		$this->data['url']=$this->url;
-			
+
 		if(isset($_SESSION['username'])){
 			$this->data['username']=$_SESSION['username'];
 		}
@@ -21,9 +23,9 @@ class LoginCtrl extends BaseCtrl{
 			$this->data['username']=$_POST['username'];
 		}
 		else{
-			$this->data['username']='';		
+			$this->data['username']='';
 		}
-		
+
 		if(isset($_SESSION['password'])){
 			$this->data['password']=$_SESSION['password'];
 		}
@@ -31,15 +33,15 @@ class LoginCtrl extends BaseCtrl{
 			$this->data['password']=$_POST['password'];
 		}
 		else{
-			$this->data['password']='';		
+			$this->data['password']='';
 		}
-	
+
 	}
-	
+
 	public function __construct($url){
 
 		$this->url = $url;
-		
+
 	}
-	
+
 }

@@ -1,4 +1,6 @@
 <?php
+namespace Templum;
+
 /**
  * @brief Template class
  *
@@ -19,7 +21,7 @@ class TemplumTemplate {
 		$this->filename = $filename;
 		$this->contents = $contents;
 		$this->varsGlobal = $varsGlobal;
-		$this->inheritFrom = NULL; 
+		$this->inheritFrom = NULL;
 		$this->inheritBlocks = array();
 	}
 
@@ -34,7 +36,7 @@ class TemplumTemplate {
 
 	/**
 	 * @brief Render the contents of the template and return it as a string.
-	 * @param $varsLocal (array) An array of key/value pairs which represent the local variables for this template. 
+	 * @param $varsLocal (array) An array of key/value pairs which represent the local variables for this template.
 	 * @return (string) The rendered contents of the template.
 	 */
 	public function render($varsLocal = array()) {
@@ -67,7 +69,7 @@ class TemplumTemplate {
 	}
 
 	/**
-	 * @brief The error handler that handles errors during the parsing of the template. 
+	 * @brief The error handler that handles errors during the parsing of the template.
 	 * @param $nr (int) Error code
 	 * @param $string (string) Error message
 	 * @param $file (string) Filename of the file in which the erorr occurred.
@@ -91,7 +93,7 @@ class TemplumTemplate {
 	/**
 	 * @brief Include another template.
 	 * @param $template (string) The template to include.
-	 * @param $varsLocal (array) An array of key/value pairs which represent the local variables for this template. 
+	 * @param $varsLocal (array) An array of key/value pairs which represent the local variables for this template.
 	 */
 	public function inc($template, $varsLocal = array()) {
 		if (!isset($this->templum)) {

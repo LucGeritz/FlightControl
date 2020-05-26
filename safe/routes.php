@@ -2,18 +2,18 @@
 // Variable views
 Flight::route('/variable', function(){
 	Flight::view()->setVar('action','examples');
-	Flight::fly(new VariableCtrl(Flight::request()->ip));
+	Flight::fly(new Demo\Controllers\VariableCtrl(Flight::request()->ip));
 });
 
 // Log out
 Flight::route('/logout', function(){
-	Flight::fly(new LogoutCtrl('/'));
+	Flight::fly(new Demo\Controllers\LogoutCtrl('/'));
 });
 
 // Simple
 Flight::route('/simple', function(){
 	Flight::view()->setVar('action','examples');
-	Flight::fly(new SimpleCtrl(),'simpleView');
+	Flight::fly(new Demo\Controllers\SimpleCtrl(),'simpleView');
 });
 
 // About
@@ -31,7 +31,7 @@ Flight::route('/about', function(){
 // Secret
 Flight::route('/secret', function(){
 	Flight::view()->setVar('action','examples');
-	Flight::fly(new SecretCtrl(Flight::request()->ip));
+	Flight::fly(new Demo\Controllers\SecretCtrl(Flight::request()->ip));
 });
 
 // NoView

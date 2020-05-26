@@ -1,14 +1,15 @@
 <?php
+namespace Templum;
 /**
  * @brief TemplumTemplate errors.
- * 
+ *
  * This exception is thrown by the TemplumTemplate class when errors occur
  * during the execution of templates. PHP errors, warnings and notices that
  * occur during the template execution are captured by the TemplumTemplate class and
  * are thrown as TemplumTemplateError exceptions.
  */
 class TemplumTemplateError extends Exception {
-	
+
 	protected $template = NULL; /**< The TemplumTemplate instance causing the error. */
 
 	/**
