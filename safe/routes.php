@@ -49,7 +49,6 @@ Flight::route('/examples', function(){
 
 // Home
 Flight::route('/', function(){
-	Flight::logger()->write('in home route');
 	Flight::view()->setVar('action','home');
 	Flight::render('homeView');
 });

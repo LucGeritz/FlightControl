@@ -1,15 +1,6 @@
 <?php
 // Register and map classes/methods
 
-/********************************************************************************************
- Register module loader
- Register the ModLoader loader class as 'module'
- - If you load any FlightControl modules you'll need these lines, otherwise comment them out
- - You could change the base directory of the modules, here 'safe/modules', if you want to
-   place your modules somewhere else.
-*/
-Flight::register('module','FlightControl\ModLoader',['safe/modules',function($dir){Flight::path($dir);}]);
-
 /*******************************************************************************************
    Map the base method
 */
@@ -42,11 +33,6 @@ Flight::map('fly',[new FlightControl\Pilot(function($url){
 	// constructor parameter is the controller-object used in case user is unauthorized
 	return new Demo\Controllers\LoginCtrl($url);
 }),'fly']);
-
-/*******************************************************************************************
-   Register SLog
-*/
-Flight::register('logger','Slog', [dirname(__FILE__).DIRECTORY_SEPARATOR.'logs']);
 
 /*******************************************************************************************
    Map notFound (override)

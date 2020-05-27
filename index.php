@@ -36,7 +36,7 @@ session_start();
 require '../flight/Flight.php';
 
 // THE VERSION OF FLIGHTCONTROL
-Flight::set('fc_version','0.1.0');
+Flight::set('fc_version','1.0.0');
 
 // [2] Feed more paths to flight's autoloader
 Flight::path('safe/classes');         // mandatory, FlightControl needs this to work
@@ -45,17 +45,10 @@ Flight::path('safe/controllers');     // decide on your strategy to make sure yo
 // [3] do some mappings
 include 'safe/mappings.php';
 
-// [5] define the routes
+// [4] define the routes
 include 'safe/routes.php';
 
-// [4] load modules
-Flight::module()->load(
-	[   'tigrez.slog',
-	]
-);
-
-// [6] start the router and go!
-Flight::logger()->write('start routing!');
+// [5] start the router and go!
 Flight::start();
 
 

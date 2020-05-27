@@ -13,7 +13,7 @@ This is the folder where the application is installed, the one with among others
 <p>The folder <code>assets</code> contains only stuff for the examples and can be deleted. Maybe you want separate folders for images, javascript and fonts, up to you.</p>
 
 <h3>safe folder</h3>
-<p><code>mappings.php</code> contains the mappings of FlightControl methods and registration of FlightControl classes. You don't have to put this in this separate file (which is included in <code>index.php</code> but it's probably a good idea. If you don't delete this file otherwise, like <code>index.php</code> this file contains a lot of useful comments. To get Flight working correctly you'll need to map the <code>base()</code>, <code>render()</code> and <code>fly()</code> methods. You'll also need to register <code>view</code>, the view handler. You'll only need to register <code>module</code>, the module loader, if you use FlightControl modules.  
+<p><code>mappings.php</code> contains the mappings of FlightControl methods and registration of FlightControl classes. You don't have to put this in this separate file (which is included in <code>index.php</code> but it's probably a good idea. If you don't delete this file otherwise, like <code>index.php</code> this file contains a lot of useful comments. To get Flight working correctly you'll need to map the <code>base()</code>, <code>render()</code> and <code>fly()</code> methods. You'll also need to register <code>view</code>, the view handler. You'll only need to register <code>module</code>, the module loader, if you use FlightControl modules.
 </p>
 <p>
 <code>routes.php</code>, like <code>mappings.php</code> you don't need to put routes in a separate file but it is recommended and let's assume you do, you can probably remove all routes since they're all for the examples. Fill it with your own routes next.
@@ -24,9 +24,7 @@ This is the folder where the application is installed, the one with among others
 <h3>safe/classes folder</h3>
 <p>Keep this folder, it's the FlightControl core.</p>
 <h3>safe/controllers folder</h3>
-<p>These are all examples controllers. Feel free to remove them.</p> 
-<h3>safe/logs folder</h3>
-<p>Delete this folder unless you've decided to use the <code>tigrez.slog</code> example module for real. (But honestly I think you can do better yourself with some loose-coupled logging interface :)</p>
+<p>These are all examples controllers. Feel free to remove them.</p>
 
 <h3>safe/modules folder</h3>
 <p>Delete this folder unless you do use modules and decided to store them in this folder. If you do use modules but want to store them somewhere else then don't forget to change the initialization of the module loader. In the example application this happens in <code>mappings.php</code>.</p>
@@ -37,12 +35,12 @@ This is the folder where the application is installed, the one with among others
 <p>Like <code>controllers</code> these are all examples and can be removed. If your new <em>main template file</em> is not called <code>layout.tpl</code> then don't forget to change the view initialization. In <code>mappings.php</code> (or where ever you moved it to) you'll see these lines:
 </p>
 <code class="microlight">Flight::register('view', 'Templum', ['safe/views'], function($view){
-    $view->setAutoEscape(true); 
+    $view->setAutoEscape(true);
     $view->setVar('mainView','layout'); // <== ***CONFIG*** name of the mainview
     $view->setVar('base',Flight::base());
     $view->setVar('active','');
 });
 </code>
-<p>Note the line with <code>setVar('mainview','layout')</code>, that's where the mainview's name is set.</p> 
+<p>Note the line with <code>setVar('mainview','layout')</code>, that's where the mainview's name is set.</p>
 
-[: endblock :] 
+[: endblock :]
