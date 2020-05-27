@@ -13,7 +13,7 @@ Flight::route('/logout', function(){
 // Simple
 Flight::route('/simple', function(){
 	Flight::view()->setVar('action','examples');
-	Flight::fly(new Demo\Controllers\SimpleCtrl(),'simpleView');
+	Flight::fly((new Demo\Controllers\SimpleCtrl())->setContainer(Flight::app()),'simpleView');
 });
 
 // About
@@ -31,7 +31,7 @@ Flight::route('/about', function(){
 // Secret
 Flight::route('/secret', function(){
 	Flight::view()->setVar('action','examples');
-	Flight::fly(new Demo\Controllers\SecretCtrl(Flight::request()->ip));
+	Flight::fly((new Demo\Controllers\SecretCtrl(Flight::request()->ip))->setContainer(Flight::app()));
 });
 
 // NoView

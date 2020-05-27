@@ -11,7 +11,7 @@
 </code>
 <p>In this example the route <code>getstarted</code> is requested. This route is handled by passing an instance of the controller <code>GetStartedCtrl</code> to the <code>fly()</code> method.</p>
 
-<p>A controller like <code>GetStertedCtrl</code> extends the <code>BaseCtrl</code> class.</p>
+<p>A controller like <code>GetStartedCtrl</code> extends the <code>BaseCtrl</code> class.</p>
 <code class="microlight">class GetStartedCtrl extends BaseCtrl{
 
 	public function getView(){

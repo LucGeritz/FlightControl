@@ -29,16 +29,21 @@ Flight::map('render',function($template,$data=[]){
 /*******************************************************************************************
    Map the fly method
 */
-Flight::map('fly',[new FlightControl\Pilot(function($url){
-	// constructor parameter is the controller-object used in case user is unauthorized
-	return new Demo\Controllers\LoginCtrl($url);
-}),'fly']);
+Flight::map('fly',[new FlightControl\Pilot(
+		// DiContainer
+		Flight::app(),
+		// callback in case unauthorized
+		function($url){
+	 		return new Demo\Controllers\LoginCtrl($url);
+		}
+),'fly']);
 
 /*******************************************************************************************
    Map notFound (override)
 */
 Flight::map('notFound', function(){
-	Flight::fly(new Demo\Controllers\Four04Ctrl(),'four04View');
+	Flight::view()->setVar('action','notfound');
+	Flight::fly((new Demo\Controllers\Four04Ctrl())->setContainer(Flight::app()),'four04View');
 });
 
 

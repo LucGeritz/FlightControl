@@ -3,7 +3,7 @@
 <p style="text-align:center;">FlightControl is made by TIGREZ / Luc Geritz</p>
 
 	<div class="image">
-		<img src="assets/tigrez.png">
+		<a href="http://tigrez.nl"><img src="assets/tigrez.png"></a>
 	</div>
 <p style="text-align:center;">TIGREZ is an anagram for Geritz, <em>Luc Geritz</em>. A Web Developer who likes writing code for the sake of coding, thinks the letters OO stand for c-OO-l and feels strong about PHP not being an excuse to write sloppy code.</p>
 	<div class="image">

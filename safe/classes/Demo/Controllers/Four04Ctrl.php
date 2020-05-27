@@ -9,7 +9,7 @@ class Four04Ctrl extends \FlightControl\BaseCtrl{
 
 	public function start(){
 		$this->data = [
-			'url' => \Flight::request()->base . \Flight::request()->url,
+			'url' => $this->container->request()->base . $this->container->request()->url,
 		];
 	}
 

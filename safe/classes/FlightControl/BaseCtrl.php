@@ -4,6 +4,7 @@ namespace FlightControl;
 abstract class BaseCtrl implements IController{
 
 	protected $data;
+	protected $container;
 
 	public function getData(){
 		return $this->data;
@@ -24,4 +25,8 @@ abstract class BaseCtrl implements IController{
 		return true;
 	}
 
+	public function setContainer($container){
+		$this->container = $container;
+		return $this;
+	}
 }

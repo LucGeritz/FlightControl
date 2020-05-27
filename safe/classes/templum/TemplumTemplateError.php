@@ -8,7 +8,7 @@ namespace Templum;
  * occur during the template execution are captured by the TemplumTemplate class and
  * are thrown as TemplumTemplateError exceptions.
  */
-class TemplumTemplateError extends Exception {
+class TemplumTemplateError extends \Exception {
 
 	protected $template = NULL; /**< The TemplumTemplate instance causing the error. */
 

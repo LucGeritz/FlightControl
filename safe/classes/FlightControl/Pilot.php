@@ -4,6 +4,7 @@ namespace FlightControl;
 class Pilot{
 
 	protected $unAuthCallback;
+	protected $container;
 
 	public function setUnauthView($view){
 		$this->setUnauthView=$view;
@@ -15,7 +16,7 @@ class Pilot{
 			if(isset($this->unAuthCallback)){
 				$callback = $this->unAuthCallback;
 				$viewName = null;
-				$controller = $callback(\Flight::request()->url);
+				$controller = $callback($this->container->request()->url);
 			}
 			else{
 				// we need authorization for this controller
@@ -39,16 +40,16 @@ class Pilot{
 			$data = $controller->getData();
 			if($data){
 				foreach($data as $k=>$v){
-					\Flight::view()->setVar($k,$v);
+					$this->container->view()->setVar($k,$v);
 				}
 			}
-			\Flight::render($viewName);
+			$this->container->render($viewName);
 		}
 		else{
 			// no view, maybe controller want to redirect
 			$redir = $controller->getRedirect();
 			if($redir){
-				\Flight::redirect($redir);
+				$this->container->redirect($redir);
 			}
 			else{
 				throw new \Exception('Nowhere to go');
@@ -56,7 +57,8 @@ class Pilot{
 		}
 	}
 
-	public function __construct($unAuthCallback = null){
+	public function __construct($container, $unAuthCallback = null){
+		$this->container = $container;
 		$this->unAuthCallback = $unAuthCallback;
 	}
 

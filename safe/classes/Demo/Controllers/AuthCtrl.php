@@ -32,12 +32,13 @@ abstract class AuthCtrl extends \FlightControl\BaseCtrl{
 		$_SESSION['loggedin']=$loggedIn;
 
 		if(!$loggedIn && isset($_POST['submit-login'])){
-			\Flight::view()->setVar('error','Invalid username or password');
+			$this->container->view()->setVar('error','Invalid username or password');
 		}
 
-		\Flight::view()->setVar('loggedIn',$loggedIn);
+		$this->container->view()->setVar('loggedIn',$loggedIn);
 		return $loggedIn;
 
 	}
+
 
 }
