@@ -46,7 +46,7 @@ Flight::path('safe/controllers');     // decide on your strategy to make sure yo
 include 'safe/mappings.php';
 
 // [4] define the routes
-include 'safe/routes.php';
+include 'safe/flightplan.php';
 
 // [5] start the router and go!
 Flight::start();
